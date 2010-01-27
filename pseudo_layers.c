@@ -81,13 +81,17 @@ PerlIOUtil_open_with_flags(pTHX_ PerlIO_funcs* self, PerlIO_list_t* layers, IV n
 	char numeric_mode[5]; /* [I#]? [wra]\+? [tb] \0 */
 
 	PERL_UNUSED_ARG(self);
+	assert( mode != NULL );
 
 	if(mode[0] != IoTYPE_NUMERIC){
-		assert( sizeof(numeric_mode) > strlen(mode) );
+		assert( sizeof(numeric_mode) >= (strlen(mode) + 2) );
+		if(!( sizeof(numeric_mode) >= (strlen(mode) + 2) )){
+			croak("[bug] mode '%s' (len=%d) is too large", mode, (int)strlen(mode));
+		}
 
 		numeric_mode[0] = IoTYPE_NUMERIC; /* as sysopen() */
 
-		Copy(mode, &numeric_mode[1], strlen(mode), char*);
+		Copy(mode, &numeric_mode[1], strlen(mode) + 1 /* '\0' */, char*);
 		mode = &numeric_mode[0];
 	}
 
