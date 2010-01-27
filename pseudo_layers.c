@@ -88,7 +88,7 @@ PerlIOUtil_open_with_flags(pTHX_ PerlIO_funcs* self, PerlIO_list_t* layers, IV n
 	if(mode[0] != IoTYPE_NUMERIC){
 		numeric_mode[0] = IoTYPE_NUMERIC; /* as sysopen() */
 
-		Copy(mode, &numeric_mode[1], strlen(mode) + 1 /* '\0' */, char*);
+		Copy(mode, &numeric_mode[1], strlen(mode) + 1 /* '\0' */, char);
 		mode = &numeric_mode[0];
 	}
 
