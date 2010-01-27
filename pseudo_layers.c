@@ -8,6 +8,8 @@
 #include "perlioutil.h"
 #include "perlioflock.h"
 
+#define PERLIOUTIL_MODE_MAX 8 /* PERL_MODE_MAX in perlio.c */
+
 static IV
 PerlIOFlock_pushed(pTHX_ PerlIO* fp, const char* mode, SV* arg,
 		PerlIO_funcs* tab){
@@ -78,17 +80,12 @@ static PerlIO*
 PerlIOUtil_open_with_flags(pTHX_ PerlIO_funcs* self, PerlIO_list_t* layers, IV n,
 		const char* mode, int fd, int imode, int perm,
 		PerlIO* f, int narg, SV** args, int flags){
-	char numeric_mode[5]; /* [I#]? [wra]\+? [tb] \0 */
+	char numeric_mode[PERLIOUTIL_MODE_MAX]; /* [I#]? [wra]\+? [tb] \0 */
 
 	PERL_UNUSED_ARG(self);
 	assert( mode != NULL );
 
 	if(mode[0] != IoTYPE_NUMERIC){
-		assert( sizeof(numeric_mode) >= (strlen(mode) + 2) );
-		if(!( sizeof(numeric_mode) >= (strlen(mode) + 2) )){
-			croak("[bug] mode '%s' (len=%d) is too large", mode, (int)strlen(mode));
-		}
-
 		numeric_mode[0] = IoTYPE_NUMERIC; /* as sysopen() */
 
 		Copy(mode, &numeric_mode[1], strlen(mode) + 1 /* '\0' */, char*);
