@@ -35,7 +35,7 @@ DEPENDENCIES
 
 COPYRIGHT AND LICENCE
 
-	Copyright (C) 2008, Goro Fuji <gfuji(at)cpan.org>, Some rights reversed.
+	Copyright (C) 2008-2010, Goro Fuji <gfuji(at)cpan.org>, Some rights reversed.
 
 	This library is free software; you can redistribute it and/or modify
 	it under the same terms as Perl itself.
