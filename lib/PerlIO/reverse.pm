@@ -40,7 +40,7 @@ C<:gzip>, C<:dir>, etc.
 
 =item *
 
-This layer is partly imcompatible with Win32 system. You have to call
+This layer is partly incompatible with Win32 system. You have to call
 B<binmode($fh)> before pushing it dynamically.
 
 =back

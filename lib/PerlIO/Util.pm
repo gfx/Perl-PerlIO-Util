@@ -118,7 +118,7 @@ See L<PerlIO::reverse>.
 
 Mediation of filesystem encoding.
 
-This layer was split into an independent distribuiion, C<PerlIO::fse>.
+This layer was split into an independent distribution, C<PerlIO::fse>.
 
 See L<PerlIO::fse>.
 

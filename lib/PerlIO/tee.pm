@@ -38,7 +38,7 @@ filehandle. For example:
 
 You can also use C<open()> with multiple arguments.
 However, it is just a syntax sugar to call C<push_layer()>: One C<:tee>
-layer has a single extra ourput stream, so arguments C<$x, $y, $z> of C<open()>,
+layer has a single extra output stream, so arguments C<$x, $y, $z> of C<open()>,
 for example, prepares a filehandle with one default layer and two C<:tee>
 layers with a internal output stream.
 

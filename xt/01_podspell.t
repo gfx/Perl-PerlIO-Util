@@ -16,3 +16,5 @@ __DATA__
 Goro Fuji
 gfuji(at)cpan.org
 Hash::FieldHash
+unseekable
+arg
