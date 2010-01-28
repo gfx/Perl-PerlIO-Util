@@ -4,6 +4,10 @@ TODO:
 * improve documents
 * PerlIO::cat - Concatenates a number of files
 
+0.71 Thu Jan 28 14:01:08 2010
+    - Fix a buffer overflow issue of 64bit arch (tokuhirom)
+    - Fix typos in the pods
+
 0.70 Sat Jun  6 08:50:01 2009
 	- remove PerlIO::fse from t/00_load.t
 	- fix pods

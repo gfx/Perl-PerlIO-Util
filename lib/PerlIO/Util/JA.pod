@@ -7,7 +7,7 @@ PerlIO::Util::JA - PerlIOに関する汎用ユーティリティ集
 
 =head1 VERSION
 
-This document describes PerlIO::Util version 0.70
+This document describes PerlIO::Util version 0.71
 
 =for test_synopsis my($in, $out, $file, $scalar);
 
