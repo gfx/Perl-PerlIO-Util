@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use inc::Module::Install;
+use Module::Install::XSUtil 0.21;
 
 if($] < 5.008_008){
 	my $v = sprintf '%vd', $^V;
@@ -14,10 +15,10 @@ END
 	sleep 1;
 }
 
-name 'PerlIO-Util';
-all_from 'lib/PerlIO/Util.pm';
+cc_warnings;
+use_ppport 3.19;
 
-build_requires 'ExtUtils::ParseXS';
+all_from 'lib/PerlIO/Util.pm';
 
 test_requires 'Test::More' => 0.62;
 

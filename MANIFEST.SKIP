@@ -46,3 +46,6 @@
 
 # avoid meta files
 ^\.
+
+# avoid pppor.h
+ppport\.h$
